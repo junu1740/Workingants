@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Btn : MonoBehaviour
 {
 
-    public int a;
-   
+
+
     public void restart()
     {
         SceneManager.LoadScene(0);

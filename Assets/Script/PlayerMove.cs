@@ -12,15 +12,15 @@ public class PlayerMove : MonoBehaviour
 
     void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();   
-        spriteRenderer = GetComponent<SpriteRenderer>();    
+        rigid = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
-   void Update()
+    void Update()
     {
         //jump
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
             rigid.AddForce(Vector2.up * jumppower, ForceMode2D.Impulse);
         anim.SetBool("Jump", true);
 
@@ -39,22 +39,22 @@ public class PlayerMove : MonoBehaviour
         //stop
         if (Input.GetButtonUp("Horizontal"))
         {
-            
+
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
     }
 
     void FixedUpdate()
     {
-       float h = Input.GetAxisRaw("Horizontal");
+        float h = Input.GetAxisRaw("Horizontal");
 
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         if (rigid.velocity.x > maxSpeed)//우측 최고 속도
-         rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
-        
-        else if (rigid.velocity.x <maxSpeed*(-1))//좌측 최고 속도
-              rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
+            rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
+
+        else if (rigid.velocity.x < maxSpeed * (-1))//좌측 최고 속도
+            rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
 
 
 
