@@ -27,4 +27,13 @@ public class Camera : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Trigger"))
+        {
+            GroundTrigger.Instance.anim.Play("DisGround");
+        }
+    }
+
 }

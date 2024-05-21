@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GroundTrigger : MonoBehaviour
 {
-  
-
-    Animation anim;
-    Rigidbody2D rigid;
-    public AnimationClip Groundanim;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private static GroundTrigger instance;
+    public static GroundTrigger Instance
     {
-        anim.clip =Groundanim;
-        anim.Play();
-        
-            
+        get { return instance; }
     }
-   
+
+    public Animator anim;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+
 }
