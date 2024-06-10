@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3608482829865646495}
-  - component: {fileID: 1443085179413051105}
   - component: {fileID: 2202808136866576510}
+  - component: {fileID: 7270532196281136168}
   - component: {fileID: 8627507953551343532}
   m_Layer: 0
   m_Name: Potal
@@ -34,18 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1443085179413051105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4852382361743642913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38cc9000eb58fd5479e21a6705d96129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &2202808136866576510
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 73321dc54f67e8742a838acc17a9be6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe08a3f3296099a4d937bb29977b8d0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,6 +86,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7270532196281136168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852382361743642913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f51b38bdf134f24c8070b39c4f822f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Door: {fileID: 0}
 --- !u!58 &8627507953551343532
 CircleCollider2D:
   m_ObjectHideFlags: 0
