@@ -14,26 +14,25 @@ public class Wall : MonoBehaviour
 
     private void Update()
     {
-        IsWall();
+        
     }
-    void IsWall()
-    {
-        if (justWall)
-        {
-        WallCount -= Time.deltaTime;
-            Debug.Log("1");
-
-        if(WallCount <= 0)
-        {
-
-        }
-        }
-    }
+    
+        
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Wall1.SetActive(true);
         WallTri.SetActive(false);
-        justWall = true;
+        
+        
+            WallCount -= Time.deltaTime;
+            Debug.Log("1");
+
+            if (WallCount <= 0)
+            {
+                Debug.Log("1");
+            }
+        
 
     }
 

@@ -10,11 +10,21 @@ public class Btn : MonoBehaviour
 
     public void restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main");
+    }
+
+    public void Exit()
+    {
+       Application.Quit();
+    }
+
+    public void Home()
+    {
+        SceneManager.LoadScene("Start");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Over");
     }
 
 
