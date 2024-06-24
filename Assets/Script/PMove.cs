@@ -3,7 +3,7 @@ using UnityEngine;
 public class PMove : MonoBehaviour
 {
     public float moveSpeed = 5f; // 이동 속도 조절
-    public float jumpForce = 10f; // 점프 힘 조절
+   
 
     private float clickTime;
     public float minClickTime = 1;
@@ -16,22 +16,56 @@ public class PMove : MonoBehaviour
     private bool justJump;
     private bool isLeft, isRight;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    public float jumpForce = 10f;
+    public int maxJumpCount = 2;  // 최대 점프 횟수
+
+    private int jumpCount = 0;    // 현재 점프 횟수
+
+    
+    void Update()
     {
-        if (collision.gameObject.tag == "Floor")
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            isFloor = true;
+            if (jumpCount < maxJumpCount)
+            {
+                Jump();
+                jumpCount++;
+            }
         }
+        if(isLeft)
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            sr.flipX = true; // 좌측으로 이동할 때 스프라이트 뒤집기
+            isLeft = false;
+        }
+        if (isRight)
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            sr.flipX = false; // 우측으로 이동할 때 스프라이트 뒤집기
+            isRight = false;
+        }
+
+        Move();
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void Jump()
     {
-        if (collision.gameObject.tag == "Floor")
-        {
-            isFloor = false;
-        }
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }
 
+    // 점프 횟수 초기화
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("W");
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            jumpCount = 0;
+        }
+
+
+    }
     public void ButtonDown()
     {
         isClick = true;
@@ -54,49 +88,11 @@ public class PMove : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
-    {
-        Jump();
-    }
-    void Update()
-    {
-        if(isLeft)
-        {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-            sr.flipX = true; // 좌측으로 이동할 때 스프라이트 뒤집기
-            isLeft = false;
-        }
-        if (isRight)
-        {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-            sr.flipX = false; // 우측으로 이동할 때 스프라이트 뒤집기
-            isRight = false;
-        }
-        JumpCheck();
-        Move();
-    }
+    
     //점프
 
-    void JumpCheck()
-    {
-        if (isFloor)
-        {
-        if (isFloor && Input.GetKeyDown(KeyCode.Space))
-           {
-                justJump = true;    
-           }
-
-        }
-    }
-    private void Jump()
-    {
-        if (justJump)
-        {
-            justJump = false;
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-
-        }
-    }
+    
+   
     public void Left()
     {
 
