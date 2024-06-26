@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class PMove : MonoBehaviour
 {
@@ -16,11 +16,13 @@ public class PMove : MonoBehaviour
     private bool justJump;
     private bool isLeft, isRight;
 
+    public static PMove instance;
+
 
     public float jumpForce = 10f;
     public int maxJumpCount = 2;  // 최대 점프 횟수
 
-    private int jumpCount = 0;    // 현재 점프 횟수
+    public int jumpCount = 0;    // 현재 점프 횟수
 
     
     void Update()
@@ -58,7 +60,11 @@ public class PMove : MonoBehaviour
     // 점프 횟수 초기화
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("W");
+       
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            jumpCount = 0;
+        }
         if (collision.gameObject.CompareTag("Ground"))
         {
             jumpCount = 0;

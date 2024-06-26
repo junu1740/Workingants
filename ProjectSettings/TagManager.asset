@@ -7,6 +7,10 @@ TagManager:
   - Trigger
   - Floor
   - Ground
+  - Jump
+  - Fork
+  - Teleporter
+  - Right_Fork
   layers:
   - Default
   - TransparentFX

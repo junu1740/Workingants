@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerTeleporter : MonoBehaviour
 {
-    // Start is called before the first frame update
     private GameObject currentTeleporter;
 
     void Update()
     {
-       
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             if (currentTeleporter != null)
             {
                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
             }
-        
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,3 +36,4 @@ public class PlayerTeleporter : MonoBehaviour
         }
     }
 }
+
