@@ -19,7 +19,7 @@ public class KnockbackExample : MonoBehaviour
         {
 
         StartCoroutine(KnockBack(18));
-            StartCoroutine(KnockDown(35));
+            StartCoroutine(KnockDown(18));
         }
 
         
