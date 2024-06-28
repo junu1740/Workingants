@@ -3,9 +3,11 @@
 public class PMove : MonoBehaviour
 {
     public float moveSpeed = 5f; // 이동 속도 조절
+    public GameObject ESC_UI;
    
 
     private float clickTime;
+    private float E = 0;
     public float minClickTime = 1;
     private bool isClick;
 
@@ -27,6 +29,21 @@ public class PMove : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            E++;
+            if(E == 1)
+            {
+            ESC_UI.SetActive(true);
+                Debug.Log("1");
+                E = 0;
+                Debug.Log("0");
+            }
+            else
+            {
+                ESC_UI.SetActive(false);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (jumpCount < maxJumpCount)
