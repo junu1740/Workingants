@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Btn : MonoBehaviour
 {
-
+    public GameObject Name;
+    public void Start()
+    {
+        Name.gameObject.SetActive(true);
+    }
 
 
     public void restart()
