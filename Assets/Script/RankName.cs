@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class RankName : MonoBehaviour
@@ -12,6 +13,7 @@ public class RankName : MonoBehaviour
     public void Gamestart()
     {
         PlayerPrefs.SetString("ID",IDTxt.text);
+
 
         SceneManager.LoadScene("Main");
     }

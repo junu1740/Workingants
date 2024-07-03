@@ -1,4 +1,4 @@
-﻿public class Text
+﻿public class _Text
 {
     internal string text;
 }

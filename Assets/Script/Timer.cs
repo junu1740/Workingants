@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Timer : MonoBehaviour
 {
-
-    public Text time;
     private float sec;
     private float min;
 
-
+    public Text time;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     private void Update()
     {
        time.text = $"{min}:{sec}";
-        sec += Time.deltaTime;
+        sec += UnityEngine.Time.deltaTime;
         if(sec >= 59)
         {
             min += 1;
