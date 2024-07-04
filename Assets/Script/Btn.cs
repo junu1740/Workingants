@@ -5,12 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Btn : MonoBehaviour
 {
-    public GameObject Name;
+    public GameObject Name_UI;
+    public GameObject Ant;
+    public GameObject Timer;
     public void Start()
     {
-        Name.gameObject.SetActive(true);
+       
     }
-
+    public void Main()
+    {
+        Name_UI.SetActive(false);
+        Timer.SetActive(true);
+        Ant.SetActive(true);
+    }
 
     public void restart()
     {
@@ -30,6 +37,8 @@ public class Btn : MonoBehaviour
     {
        
         SceneManager.LoadScene("Goal");
+        
+        
     }
 
 

@@ -6,18 +6,25 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+
+    public static Timer Instance;
     private float sec;
     private float min;
 
     public Text time;
 
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
     }
 
     private void Update()
     {
-       time.text = $"{min}:{sec}";
+       time.text = $"{min}:{sec:N2}";
         sec += UnityEngine.Time.deltaTime;
         if(sec >= 59)
         {
@@ -26,4 +33,11 @@ public class Timer : MonoBehaviour
         }
 
     }
+
+    void ScoreSet(float time, string name)
+    {
+        PlayerPrefs.SetFloat("Score", time);
+
+    }
+    
 }
