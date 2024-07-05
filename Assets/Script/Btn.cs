@@ -7,7 +7,7 @@ public class Btn : MonoBehaviour
 {
     public GameObject Name_UI;
     public GameObject Ant;
-    public GameObject Timer;
+    public GameObject Timer_;
     public void Start()
     {
        
@@ -15,7 +15,7 @@ public class Btn : MonoBehaviour
     public void Main()
     {
         Name_UI.SetActive(false);
-        Timer.SetActive(true);
+        Timer_.SetActive(true);
         Ant.SetActive(true);
     }
 
@@ -37,7 +37,7 @@ public class Btn : MonoBehaviour
     {
        
         SceneManager.LoadScene("Goal");
-        
+        Timer.Instance.ScoreSet();
         
     }
 

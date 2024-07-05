@@ -45,6 +45,7 @@ public class RankingSystem : MonoBehaviour
                 currentname = tmpName;
             }
         }
+        Debug.Log("a");
 
         // 업데이트된 최고 점수들을 다시 저장
         for (int i = 0; i < 5; i++)
@@ -58,7 +59,7 @@ public class RankingSystem : MonoBehaviour
         // 현재 플레이어의 랭킹 표시
         RankNameText.text = PlayerPrefs.GetString("Name");
         RankScoreText.text = string.Format("{0:N2}", PlayerPrefs.GetFloat("Score"));
-
+        Debug.Log("bv");
         // 저장된 최고 점수들을 가져와서 화면에 표시
         for (int i = 0; i < 5; i++)
         {
