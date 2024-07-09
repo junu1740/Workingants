@@ -133,16 +133,18 @@ public class PMove : MonoBehaviour
     //이동
     private void Move()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
             sr.flipX = true; // 좌측으로 이동할 때 스프라이트 뒤집기 
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
             sr.flipX = false; // 우측으로 이동할 때 스프라이트 뒤집기
         }
+
+
     }
 }
 
