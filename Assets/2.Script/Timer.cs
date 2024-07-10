@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public float Time;
-    public float besttime;
+    public float besttime = 50000f;
     public static Timer Instance;
     private float sec;
     private float min;
-    private float tim;
+   public float tim;
 
     public Text timeTxt;
 
@@ -26,10 +26,10 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        Time = tim;
        timeTxt.text = $"{min}:{sec:N2}";
         sec += UnityEngine.Time.deltaTime;
         tim += UnityEngine.Time.deltaTime;
+        Time = tim;
         if (sec >= 59)
         {
             min += 1;

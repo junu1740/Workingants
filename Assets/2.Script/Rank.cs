@@ -29,10 +29,8 @@ public class RankingSystem : MonoBehaviour
 
     private void Update()
     {
-
-        if (Timer.Instance.Time < Timer.Instance.besttime)
+        if (Timer.Instance.Time <= Timer.Instance.besttime)
         {
-            Debug.Log("1");
             BestScore_.text = TimeScore.text;
             BestName_.text = PlayerPrefs.GetString("Name");
             Timer.Instance.besttime = Timer.Instance.Time;
