@@ -4,8 +4,11 @@ public class PMove : MonoBehaviour
 {
     public float moveSpeed = 5f; // 이동 속도 조절
     public GameObject ESC_UI;
-   
 
+    private AudioSource audioSource;
+
+    public AudioClip BGM;
+    public AudioClip JumpClip;
     private float clickTime;
     private float E = 0;
     public float minClickTime = 1;
@@ -26,6 +29,13 @@ public class PMove : MonoBehaviour
 
     public int jumpCount = 0;    // 현재 점프 횟수
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(BGM);
+    }
     
     void Update()
     {
@@ -72,6 +82,8 @@ public class PMove : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        audioSource.PlayOneShot(JumpClip);
+        
     }
 
     // 점프 횟수 초기화
@@ -105,11 +117,6 @@ public class PMove : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-    }
 
     
     //점프

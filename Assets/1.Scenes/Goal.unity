@@ -272,7 +272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: RankScore
+  m_Text: 11:10:07
 --- !u!222 &247112281
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: RankName
+  m_Text: "zl\uC874\uD0DC\uD76C"
 --- !u!222 &315062953
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -629,7 +629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -552, y: 217}
+  m_AnchoredPosition: {x: -506, y: 217}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765414348
@@ -665,7 +665,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: RankName
+  m_Text: "\uC804\uC124"
 --- !u!222 &765414349
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -901,6 +901,7 @@ MonoBehaviour:
   Name_UI: {fileID: 0}
   Ant: {fileID: 0}
   Timer_: {fileID: 0}
+  Setting_UI: {fileID: 0}
   IDTxt: {fileID: 0}
 --- !u!114 &1154179226
 MonoBehaviour:
@@ -1053,7 +1054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 297, y: 217}
+  m_AnchoredPosition: {x: 286, y: 217}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360102834
@@ -1089,7 +1090,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: RankScore
+  m_Text: 3:51:12
 --- !u!222 &1360102835
 CanvasRenderer:
   m_ObjectHideFlags: 0

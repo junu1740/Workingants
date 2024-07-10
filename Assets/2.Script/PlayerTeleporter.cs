@@ -6,15 +6,14 @@ public class PlayerTeleporter : MonoBehaviour
 {
     private GameObject currentTeleporter;
 
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
             if (currentTeleporter != null)
             {
                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
+       
             }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -9,10 +9,11 @@ public class Btn : MonoBehaviour
     public GameObject Name_UI;
     public GameObject Ant;
     public GameObject Timer_;
+    public GameObject Setting_UI;
     public Text IDTxt;
 
     
-
+   
   
     public void Main()
     {
@@ -22,6 +23,10 @@ public class Btn : MonoBehaviour
         PlayerPrefs.SetString("Name", IDTxt.text);
     }
 
+    public void Goal()
+    {
+        SceneManager.LoadScene("Goal");
+    }
     public void restart()
     {
         SceneManager.LoadScene("Main");
