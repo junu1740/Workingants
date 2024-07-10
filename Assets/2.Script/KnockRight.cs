@@ -18,7 +18,7 @@ public class KnockRight : MonoBehaviour
         if (collision.gameObject.tag == "Right_Fork")
         {
             StartCoroutine(KnockBack(10));
-            StartCoroutine(KnockDown(18));
+            StartCoroutine(KnockDown(10));
         }
 
 

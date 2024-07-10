@@ -11,16 +11,21 @@ public class Btn : MonoBehaviour
     public GameObject Timer_;
     public GameObject Setting_UI;
     public Text IDTxt;
+    public Text Name_Text;
 
-    
-   
-  
+
+
+    private void Update()
+    {
+       
+    }
     public void Main()
     {
         Name_UI.SetActive(false);
         Timer_.SetActive(true);
         Ant.SetActive(true);
         PlayerPrefs.SetString("Name", IDTxt.text);
+        Name_Text.text = PlayerPrefs.GetString("Name");
     }
 
     public void Goal()
