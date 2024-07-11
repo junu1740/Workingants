@@ -5,6 +5,7 @@ public class PMove : MonoBehaviour
     public float moveSpeed = 5f; // 이동 속도 조절
     public GameObject ESC_UI;
     public GameObject MiniCam;
+    public GameObject AntArrow;
 
     private AudioSource audioSource;
 
@@ -17,6 +18,7 @@ public class PMove : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private bool controlsReversed = false;
 
     private bool isFloor;
     private bool justJump;
@@ -47,6 +49,8 @@ public class PMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             MiniCam.SetActive(!MiniCam.activeSelf);
+            AntArrow.SetActive(!AntArrow.activeSelf);
+
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -129,6 +133,8 @@ public class PMove : MonoBehaviour
         }
 
 
+       
     }
+   
 }
 
