@@ -1,41 +1,39 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RankingSystem : MonoBehaviour
 {
-    [Header("Best")]
-    public Text BestScore_;
-    public Text BestName_;
+    public Text BestScoreText;
+    public Text BestNameText;
+    public Text CurrentScoreText;
+    public Text CurrentNameText;
 
-    [Header("Best")]
-    public Text CurrentScore_;
-    public Text CurrentName_;
 
-    private Text TimeScore;
-    private float CurrentScore;
-    private float BestScore;
-
-    private void Start()
+    private void OnEnable()
     {
-       TimeScore = Timer.Instance.timeTxt;
-        CurrentName_.text = PlayerPrefs.GetString("Name");
 
-            CurrentScore_.text = TimeScore.text;
+        
 
-    }
+        float bestScore = PlayerPrefs.GetFloat("BestScore", Mathf.Infinity);
+        string bestName = PlayerPrefs.GetString("BestName", "zl¡∏≈¬»Ò");
 
-    private void Update()
-    {
-        if (Timer.Instance.Time <= Timer.Instance.besttime)
+        float currentScore = TimerManager.instance.Time;
+        string currentName = PlayerPrefs.GetString("Name", "No Name");
+
+        CurrentScoreText.text = currentScore.ToString();
+        CurrentNameText.text = currentName;
+
+        if (currentScore < bestScore)
         {
-            BestScore_.text = TimeScore.text;
-            BestName_.text = PlayerPrefs.GetString("Name");
-            Timer.Instance.besttime = Timer.Instance.Time;
+            bestScore = currentScore;
+            bestName = currentName;
+
+            PlayerPrefs.SetFloat("BestScore", bestScore);
+            PlayerPrefs.SetString("BestName", bestName);
         }
-       
+
+        BestScoreText.text = bestScore.ToString();
+        BestNameText.text = bestName;
     }
 }
 

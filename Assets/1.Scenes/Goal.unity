@@ -771,10 +771,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10327f0abdf1564a86acb8fdf98dbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BestScore_: {fileID: 1360102834}
-  BestName_: {fileID: 765414348}
-  CurrentScore_: {fileID: 247112280}
-  CurrentName_: {fileID: 315062952}
+  BestScoreText: {fileID: 1360102834}
+  BestNameText: {fileID: 765414348}
+  CurrentScoreText: {fileID: 247112280}
+  CurrentNameText: {fileID: 315062952}
 --- !u!4 &1041418799
 Transform:
   m_ObjectHideFlags: 0
@@ -903,6 +903,7 @@ MonoBehaviour:
   Timer_: {fileID: 0}
   Setting_UI: {fileID: 0}
   IDTxt: {fileID: 0}
+  Name_Text: {fileID: 0}
 --- !u!114 &1154179226
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,11 +16,7 @@ public class SoundMAnager : MonoBehaviour
     void Start()
     {
         
-      
 
-        
-
-        
         audioSource = GetComponent<AudioSource>();
     }
 

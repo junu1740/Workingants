@@ -11,6 +11,7 @@ TagManager:
   - Fork
   - Teleporter
   - Right_Fork
+  - Terrain
   layers:
   - Default
   - TransparentFX

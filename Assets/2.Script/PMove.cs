@@ -4,10 +4,11 @@ public class PMove : MonoBehaviour
 {
     public float moveSpeed = 5f; // 이동 속도 조절
     public GameObject ESC_UI;
+    public GameObject MiniCam;
 
     private AudioSource audioSource;
 
-    public AudioClip BGM;
+   
     public AudioClip JumpClip;
     private float clickTime;
     private float E = 0;
@@ -34,32 +35,24 @@ public class PMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(BGM);
+      
     }
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            E++;
-            if(E == 1)
-            {
-            ESC_UI.SetActive(true);
-                Debug.Log("1");
-                E = 0;
-                Debug.Log("0");
-            }
-            else
-            {
-                ESC_UI.SetActive(false);
-            }
+            ESC_UI.SetActive(!ESC_UI.activeSelf);
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            MiniCam.SetActive(!MiniCam.activeSelf);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (jumpCount < maxJumpCount)
             {
                 Jump();
-                jumpCount++;
             }
         }
         if(isLeft)
@@ -80,6 +73,7 @@ public class PMove : MonoBehaviour
 
     void Jump()
     {
+                jumpCount++;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         audioSource.PlayOneShot(JumpClip);
@@ -101,21 +95,7 @@ public class PMove : MonoBehaviour
 
 
     }
-    public void ButtonDown()
-    {
-        isClick = true;
-    }
-
-    public void ButtonUp()
-    {
-        isClick = false;
-
-        if(clickTime >= minClickTime)
-        {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-            sr.flipX = false; // 우측으로 이동할 때 스프라이트 뒤집기
-        }
-    }
+   
 
 
     
@@ -132,10 +112,7 @@ public class PMove : MonoBehaviour
     {
         isRight = true;
     }
-    public void Jamp()
-    {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-    }
+   
 
     //이동
     private void Move()

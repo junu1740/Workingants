@@ -31,10 +31,13 @@ public class Btn : MonoBehaviour
     public void Goal()
     {
         SceneManager.LoadScene("Goal");
+        // BestTime   set
+        //Tim reset
     }
     public void restart()
     {
         SceneManager.LoadScene("Main");
+        Timer.Instance.tim = 0;
     }
 
     public void Exit()

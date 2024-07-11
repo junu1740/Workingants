@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms;
 
 public class Goal : MonoBehaviour
 {
@@ -11,15 +7,18 @@ public class Goal : MonoBehaviour
 
     public void Update()
     {
-        
-       
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
+        //if (Timer.Instance.tim <= Timer.Instance.besttime)
+
+        Debug.Log($"Goal ::: time : {TimerManager.instance.Time}");
+        Debug.Log($"Goal ::: besttime : {TimerManager.instance.besttime}");
         SceneManager.LoadScene("Goal");
-        
-        
+
     }
 
 }

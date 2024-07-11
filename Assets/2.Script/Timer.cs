@@ -1,24 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class Timer : MonoBehaviour
 {
-    public float Time;
-    public float besttime = 50000f;
     public static Timer Instance;
     private float sec;
     private float min;
-   public float tim;
+    public float tim;
 
     public Text timeTxt;
 
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+        DontDestroyOnLoad(Instance);
     }
     private void Start()
     {
@@ -26,18 +30,14 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-       timeTxt.text = $"{min}:{sec:N2}";
+        timeTxt.text = $"{min}:{sec:N2}";
         sec += UnityEngine.Time.deltaTime;
         tim += UnityEngine.Time.deltaTime;
-        Time = tim;
+        TimerManager.instance.Time = tim;
         if (sec >= 59)
         {
             min += 1;
             sec = 0;
         }
-
     }
-
-
-    
 }

@@ -68,14 +68,11 @@ public class KnockRight : MonoBehaviour
         // 초기 속도를 0으로 설정
         rigid.velocity = Vector2.zero;
 
-
-        Vector2 knockbackDirection = Vector2.down;
-
         // power가 0 이상인 동안 반복
         while (power >= 0)
         {
             // Rigidbody에 넉백 방향과 power를 곱한 값을 속도로 설정
-            rigid.velocity = knockbackDirection * power;
+            rigid.velocity = Vector2.down * power;
 
             // 매우 짧은 시간 동안 대기
             yield return new WaitForSeconds(0.0001f);
