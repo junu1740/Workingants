@@ -8,7 +8,7 @@ public class RankingSystem : MonoBehaviour
     public Text CurrentScoreText;
     public Text CurrentNameText;
 
-
+    
     private void OnEnable()
     {
 
@@ -18,7 +18,7 @@ public class RankingSystem : MonoBehaviour
         string bestName = PlayerPrefs.GetString("BestName", "zlÁ¸ÅÂÈñ");
 
         float currentScore = TimerManager.instance.Time;
-        string currentName = PlayerPrefs.GetString("Name", "No Name");
+        string currentName = PlayerPrefs.GetString("Name", "ÁÖ´©Â¯Â¯");
 
         CurrentScoreText.text = currentScore.ToString();
         CurrentNameText.text = currentName;

@@ -1,4 +1,5 @@
- using UnityEngine;
+
+using UnityEngine;
 
 public class PMove : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PMove : MonoBehaviour
 
     private AudioSource audioSource;
 
-   
+
     public AudioClip JumpClip;
     private float clickTime;
     private float E = 0;
@@ -23,6 +24,7 @@ public class PMove : MonoBehaviour
     private bool isFloor;
     private bool justJump;
     private bool isLeft, isRight;
+    private bool isreverse;
 
     public static PMove instance;
 
@@ -37,9 +39,14 @@ public class PMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
-      
+
     }
-    
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -59,35 +66,38 @@ public class PMove : MonoBehaviour
                 Jump();
             }
         }
-        if(isLeft)
+        if (isLeft)
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            transform.localScale = new Vector2(-4.07671f, transform.localScale.y);
             sr.flipX = true; // 좌측으로 이동할 때 스프라이트 뒤집기
             isLeft = false;
         }
         if (isRight)
         {
             transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            transform.localScale = new Vector2(4.07671f, transform.localScale.y);
             sr.flipX = false; // 우측으로 이동할 때 스프라이트 뒤집기
             isRight = false;
         }
 
         Move();
+
     }
 
     void Jump()
     {
-                jumpCount++;
+        jumpCount++;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         audioSource.PlayOneShot(JumpClip);
-        
+
     }
 
     // 점프 횟수 초기화
     void OnCollisionEnter2D(Collision2D collision)
     {
-       
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             jumpCount = 0;
@@ -99,42 +109,51 @@ public class PMove : MonoBehaviour
 
 
     }
-   
 
-
-    
-    //점프
-
-    
-   
-    public void Left()
-    {
-
-        isLeft = true;
-    }
-    public void Right()
-    {
-        isRight = true;
-    }
-   
 
     //이동
     private void Move()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-            sr.flipX = true; // 좌측으로 이동할 때 스프라이트 뒤집기 
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-            sr.flipX = false; // 우측으로 이동할 때 스프라이트 뒤집기
-        }
 
 
-       
+        float horizontalInput = Input.GetAxis("Horizontal");
+        Invoke("MirrorTimer", 5);
+
+        if (isreverse == true)
+        {
+            Vector3 moveDirection = new Vector3(horizontalInput, 0f, 0f);
+            if (horizontalInput < 0f)
+            {
+                transform.localScale = new Vector3(4.07671f, transform.localScale.y, transform.localScale.z);
+            }
+            else if (horizontalInput > 0f)
+            {
+                transform.localScale = new Vector3(-4.07671f, transform.localScale.y, transform.localScale.z);
+            }
+            transform.Translate(moveDirection * -moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            Vector3 moveDirection = new Vector3(horizontalInput, 0f, 0f);
+            if (horizontalInput < 0f)
+            {
+                transform.localScale = new Vector3(-4.07671f, transform.localScale.y, transform.localScale.z);
+            }
+            else if (horizontalInput > 0f)
+            {
+                transform.localScale = new Vector3(4.07671f, transform.localScale.y, transform.localScale.z);
+            }
+            transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        }
     }
-   
+
+    void MirrorTimer()
+    {
+        isreverse = false;
+    }
+    public void MirrorCheck()
+    {
+        isreverse = true;
+    }
 }
 

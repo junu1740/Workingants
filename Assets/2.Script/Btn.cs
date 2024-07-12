@@ -26,6 +26,7 @@ public class Btn : MonoBehaviour
         Ant.SetActive(true);
         PlayerPrefs.SetString("Name", IDTxt.text);
         Name_Text.text = PlayerPrefs.GetString("Name");
+
     }
 
     public void Goal()
